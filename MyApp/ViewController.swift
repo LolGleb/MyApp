@@ -10,11 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var myAppLabel: UIView!
+    @IBOutlet var startButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        myAppLabel.isHidden = true
+        startButton.layer.cornerRadius = 10
     }
 
-
+    @IBAction func startButtonPressed() {
+        if myAppLabel.isHidden {
+            myAppLabel.isHidden = false
+            startButton.setTitle("Clear Text", for: .normal)
+        } else {
+            myAppLabel.isHidden = true
+            startButton.setTitle("Show Text", for: .normal)
+        }
+    }
 }
 
